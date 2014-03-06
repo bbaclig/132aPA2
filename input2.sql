@@ -38,7 +38,7 @@ INSERT INTO Elective VALUES ('Phonetics');
 INSERT INTO Elective VALUES ('Phonology');
 INSERT INTO Elective VALUES ('Web Programming');
 
-INSERT INTO Prerequisite VALUES ('Data Strucutre', 'Java Programming');
+INSERT INTO Prerequisite VALUES ('Data Structure', 'Java Programming');
 INSERT INTO Prerequisite VALUES ('Operating System', 'Architecture');
 INSERT INTO Prerequisite VALUES ('Architecture', 'Java Programming');
 INSERT INTO Prerequisite VALUES ('Architecture', 'Data Structure');
