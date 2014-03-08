@@ -65,9 +65,10 @@ public class PA2 {
                            "SELECT Course FROM Record r2 " +
                            "WHERE r2.Course = Core.course AND r2.Student = Students.Student)))" +
                            "AND Student IN ( " + 
-                           "SELECT Student FROM (Elective LEFT JOIN Record) c " +
+                           "SELECT Student FROM (Record) c " +
+                           "WHERE COURSE IN (SELECT * FROM Elective) " +
                            "GROUP BY Student " +
-                           "HAVING COUNT(c.Course) >= 5);");                          
+                           "HAVING COUNT(c.Student) >= 5);");                          
 
         delta = stmt.executeUpdate("UPDATE QuartersToGraduation " +
                            "SET Quarters = Quarters + 1 " +
