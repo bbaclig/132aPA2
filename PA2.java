@@ -58,16 +58,16 @@ public class PA2 {
 
         stmt.executeUpdate("DELETE FROM Students " +
                            "WHERE Student IN ( " +
-                           "SELECT Student FROM Students " +
-                           "WHERE NOT EXISTS( " +
-                           "SELECT Course FROM Core " +
-                           "WHERE NOT EXISTS( " +
-                           "SELECT Course FROM Record r2 " +
-                           "WHERE r2.Course = Core.course AND r2.Student = Students.Student)))" +
+                              "SELECT Student FROM Students " +
+                              "WHERE NOT EXISTS( " +
+                                "SELECT Course FROM Core " +
+                                "WHERE NOT EXISTS( " +
+                                    "SELECT Course FROM Record r2 " +
+                                    "WHERE r2.Course = Core.course AND r2.Student = Students.Student)))" +
                            "AND Student IN ( " + 
-                           "SELECT Student FROM (Elective LEFT JOIN Record) c " +
-                           "GROUP BY Student " +
-                           "HAVING COUNT(c.Course) >= 5);");                          
+                              "SELECT Student FROM (Elective LEFT JOIN Record) c " +
+                              "GROUP BY Student " +
+                              "HAVING COUNT(c.Course) >= 5);");                          
 
         delta = stmt.executeUpdate("UPDATE QuartersToGraduation " +
                            "SET Quarters = Quarters + 1 " +
